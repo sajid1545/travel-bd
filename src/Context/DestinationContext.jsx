@@ -17,6 +17,9 @@ const DestinationContext = ({ children }) => {
 		setSelectedCart(selectedCard);
 	};
 
+
+	console.log(selectedCart);
+
 	const bookingInfo = { destinations, selectedCart, handleCard };
 
 	return <BookingContext.Provider value={bookingInfo}>{children}</BookingContext.Provider>;

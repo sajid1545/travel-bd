@@ -10,7 +10,7 @@ const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
 		<div>
-			<div className="px-4 py-5   md:px-24 lg:px-22 bg-white rounded-xl">
+			<div className="px-4 py-5   md:px-24 lg:px-22 bg-white rounded-xl shadow-2xl shadow-slate-500">
 				<div className="relative flex items-center justify-between">
 					<Link to={'/'}>
 						<img src={logo} alt="" className="w-[120px] h-[50px] text-deep-purple-accent-400" />

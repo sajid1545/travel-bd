@@ -3,18 +3,27 @@
 		"id": "63533a41198d82f5d7edc9a2",
 		"picture": "https://img.freepik.com/free-photo/empty-sea-beach-background_1339-4265.jpg?w=1060&t=st=1666399864~exp=1666400464~hmac=622947817eb1d71fd6c1dd093cb32c909892794eda47b7df011a8a85cc174077",
 		"title": "Cox’s Bazaar",
-		"details": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island."
+		"details": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+		"roomA": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=658&q=80",
+		"roomB": "https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1106&q=80",
+		"roomC": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
 	},
 	{
 		"id": "63533a41ec295f038894699c",
 		"picture": "https://img.freepik.com/free-photo/vestrahorn-mountains-stokksnes-iceland_335224-667.jpg?w=1060&t=st=1666399783~exp=1666400383~hmac=80e736af85db1faf25053588cf1d803b045386a23b52ac14cadbce79e49b2c88",
 		"title": "Sreemongal",
-		"details": "Srimongal is the place of tea gardens, hills and forest areas on the hills. Within your eyesight you will find green throughout. It is famous for the largest tea gardens of world covered by lush green carpet. One can have a look into the spectacular tea processing at Tea Research Institute. Bangladesh produces and exports a large quantity of high quality tea every year. Most of the tea estates are in Srimangal.  It is also called camellia, green carpet or Tea Mountain."
+		"details": "Srimongal is the place of tea gardens, hills and forest areas on the hills. Within your eyesight you will find green throughout. It is famous for the largest tea gardens of world covered by lush green carpet. One can have a look into the spectacular tea processing at Tea Research Institute. Bangladesh produces and exports a large quantity of high quality tea every year. Most of the tea estates are in Srimangal.  It is also called camellia, green carpet or Tea Mountain.",
+		"roomA": "https://images.unsplash.com/photo-1486304873000-235643847519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+		"roomB": "https://images.unsplash.com/photo-1473893604213-3df9c15611c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+		"roomC": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
 	},
 	{
 		"id": "63533a4138453c137b567ab4",
 		"picture": "https://img.freepik.com/free-photo/beautiful-shot-forest-with-tall-green-trees_181624-20615.jpg?w=996&t=st=1666399832~exp=1666400432~hmac=7870374a0e5240e87e506070245c0ebb06bf77c3c0dcddb2a6d222605d0543dd",
 		"title": "Sundarban",
-		"details": "Sundarbans is a mangrove area in the delta formed by the confluence of the Padma, Brahmaputra and Meghna Rivers in the Bay of Bengal. It spans the area from the Baleswar River in Bangladesh's division of Khulna to the Hooghly River in India's state of West Bengal."
+		"details": "Sundarbans is a mangrove area in the delta formed by the confluence of the Padma, Brahmaputra and Meghna Rivers in the Bay of Bengal. It spans the area from the Baleswar River in Bangladesh's division of Khulna to the Hooghly River in India's state of West Bengal.",
+		"roomA": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+		"roomB": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+		"roomC": "https://images.unsplash.com/photo-1594560913095-8cf34bab82ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
 	}
 ]

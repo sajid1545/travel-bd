@@ -83,7 +83,7 @@ const Login = () => {
 				</div>
 				<p className="text-xs text-center sm:px-6 dark:text-gray-400">
 					Don't have an account?
-					<Link to={'/register'} className="underline dark:text-gray-100">
+					<Link to={'/register'} className="underline text-yellow-400">
 						Sign up
 					</Link>
 				</p>

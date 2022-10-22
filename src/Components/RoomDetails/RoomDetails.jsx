@@ -1,22 +1,24 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
 import { BookingContext } from './../../Context/DestinationContext';
+import { AuthContext } from './../../Context/UserContext';
 
 
 const RoomDetails = () => {
-	const { selectedCart } = useContext(BookingContext);
-	console.log(selectedCart);
+	const { selectedCart} = useContext(BookingContext);
+	const {user} = useContext(AuthContext)
 
 	const { roomC, roomB, roomA } = selectedCart;
 
-	if (!selectedCart) {
-	}
+	// if (!selectedCart) {
+	// }
 
 	return (
 		<div>
 			<div className="text-center text-xl mt-10 font-bold">
 				{selectedCart.length !==0 ? (
-					<p className="text-green-600">Chooose Your Desired Room</p>
+					<p className="text-green-600">{ user?.displayName } Chooose Your Desired Room</p>
 				) : (
 					<p className="text-red-700">
 						You have to select a destination First  {' '}
@@ -55,7 +57,9 @@ const RoomDetails = () => {
 					</div>
 				</div>
 
-				<div></div>
+				<div>
+					<GoogleMaps/>
+				</div>
 			</div>
 		</div>
 	);

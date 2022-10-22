@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import { AuthContext } from './../../Context/UserContext';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
-	const { signIn, googleSignIn, user, faceBookSignIn } = useContext(AuthContext);
+	const { signIn, googleSignIn, user, faceBookSignIn, setLoading } = useContext(AuthContext);
 	const location = useLocation();
-	let navigate = useNavigate();
 	let from = location.state?.from?.pathname || '/';
+	let navigate = useNavigate();
 
 	useEffect(() => {
-		if (user && user?.email) {
+		if (user?.emailVerified) {
 			navigate(from, { replace: true });
 		}
 	}, [user, navigate]);
@@ -30,12 +30,20 @@ const Login = () => {
 				const user = result.user;
 				console.log(user);
 				form.reset();
-				toast.success('Success');
-				navigate(from, { replace: true });
+				// toast.success('Success');
+				if (user.emailVerified) {
+					navigate(from, { replace: true });
+				} else {
+					toast.error('Your email is not verified. Please verify your email address.');
+				}
+				// navigate(from, { replace: true });
 			})
 			.catch((e) => {
 				toast.error(e.message);
 				setError(e.message);
+			})
+			.finally(() => {
+				setLoading(false);
 			});
 	};
 
@@ -45,6 +53,9 @@ const Login = () => {
 				const user = result.user;
 				console.log(user);
 				toast.success('Success');
+				// if (user) {
+				// 	navigate(from, { replace: true });
+				// }
 			})
 			.catch((e) => {
 				toast.error(e.message);

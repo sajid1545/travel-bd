@@ -6,6 +6,7 @@ import {
 	getAuth,
 	GoogleAuthProvider,
 	onAuthStateChanged,
+	sendEmailVerification,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 	signOut,
@@ -40,17 +41,21 @@ const UserContext = ({ children }) => {
 	};
 
 	const googleSignIn = () => {
+
 		return signInWithPopup(auth, googleProvider);
 	};
 
 	const faceBookSignIn = () => {
+
 		return signInWithPopup(auth, faceBookProvider);
 	};
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-			setUser(currentUser);
+			// if (currentUser === null || currentUser.emailVerified) {
+			// }
 			console.log(currentUser);
+			setUser(currentUser);
 			setLoading(false);
 		});
 
@@ -59,6 +64,10 @@ const UserContext = ({ children }) => {
 
 	const logOut = () => {
 		return signOut(auth);
+	};
+
+	const verifyEmail = () => {
+		return sendEmailVerification(auth.currentUser);
 	};
 
 	const authInfo = {
@@ -70,6 +79,8 @@ const UserContext = ({ children }) => {
 		loading,
 		googleSignIn,
 		faceBookSignIn,
+		verifyEmail,
+		setLoading,
 	};
 
 	return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

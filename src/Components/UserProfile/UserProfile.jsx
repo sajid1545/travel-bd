@@ -7,7 +7,7 @@ const UserProfile = () => {
 
     return (
         <div>
-            <h1>User Profile</h1>
+            <h1>User Profile { user?.displayName }</h1>
         </div>
     );
 };

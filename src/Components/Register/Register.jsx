@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from './../../Context/UserContext';
 
 const Register = () => {
-	const { createUser, updateUserProfile } = useContext(AuthContext);
+	const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
 	const [errors, setErrors] = useState({
 		password: '',
@@ -40,7 +40,10 @@ const Register = () => {
 				console.log(user);
 				handleUpdateProfile(name);
 				form.reset();
-				toast.success('Successfully registered');
+				// toast.success('Successfully registered');
+				verifyEmail().then(() => {
+					toast.success('Verify your email address');
+				});
 			})
 			.catch((e) => {
 				setErrors({ ...errors, general: e.message });
@@ -57,6 +60,10 @@ const Register = () => {
 			.then(() => {})
 			.catch((e) => toast.error(e.message));
 	};
+
+	// const handleVerifyEmail = () => {
+	// 	verifyEmail().then(() => {});
+	// };
 
 	return (
 		<div className="mt-3">

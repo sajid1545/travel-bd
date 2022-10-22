@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { BookingContext } from './../../Context/DestinationContext';
 
 const BookingForm = () => {
@@ -7,8 +7,9 @@ const BookingForm = () => {
 
 	return (
 		<div className="h-[470px] w-[470px] rounded-[5px]  p-[24px] bg-white text-black space-y-5">
+			{selectedCart.length === 0 ? <Navigate to={'/'}></Navigate> : ''}
 			<div className="space-y-2">
-				<label for="firstname" className="text-md">
+				<label htmlFor="firstname" className="text-md">
 					First name
 				</label>
 				<input
@@ -19,7 +20,7 @@ const BookingForm = () => {
 				/>
 			</div>
 			<div className="space-y-2">
-				<label for="destination" className="text-md">
+				<label htmlFor="destination" className="text-md">
 					Destination
 				</label>
 				<input
@@ -34,7 +35,7 @@ const BookingForm = () => {
 
 			<div className="flex justify-between gap-4">
 				<div className="space-y-2">
-					<label for="date" className="text-md">
+					<label htmlFor="date" className="text-md">
 						From
 					</label>
 					<input
@@ -45,7 +46,7 @@ const BookingForm = () => {
 					/>
 				</div>
 				<div className="space-y-2">
-					<label for="toDate" className="text-md">
+					<label htmlFor="toDate" className="text-md">
 						to
 					</label>
 					<input

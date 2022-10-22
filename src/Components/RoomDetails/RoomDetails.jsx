@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import DestinationContext from '../../Context/DestinationContext';
 import { BookingContext } from './../../Context/DestinationContext';
+
 
 const RoomDetails = () => {
 	const { selectedCart } = useContext(BookingContext);
@@ -26,27 +26,27 @@ const RoomDetails = () => {
 			</div>
 			<div className="grid grid-cols-2 gap-4">
 				<div className="space-y-5 p-10">
-					<div className="card card-side bg-base-100 shadow-xl">
+					<div className="card card-side bg-base-100 shadow-xl p-7">
 						<figure>
-							<img src={roomA} alt="Movie" />
+							<img src={roomA} alt="Movie" className='w-[270px] h-[180px]' />
 						</figure>
 						<div className="card-body">
 							<h2 className="card-title">New movie is released!</h2>
 							<p>Click the button to watch on Jetflix app.</p>
 						</div>
 					</div>
-					<div className="card card-side bg-base-100 shadow-xl">
+					<div className="card card-side bg-base-100 shadow-xl p-7">
 						<figure>
-							<img src={roomB} alt="Movie" />
+							<img src={roomB} alt="Movie" className='w-[270px] h-[180px]'/>
 						</figure>
 						<div className="card-body">
 							<h2 className="card-title">New movie is released!</h2>
 							<p>Click the button to watch on Jetflix app.</p>
 						</div>
 					</div>
-					<div className="card card-side bg-base-100 shadow-xl">
+					<div className="card card-side bg-base-100 shadow-xl p-7">
 						<figure>
-							<img src={roomC} alt="Movie" />
+							<img src={roomC} alt="Movie" className='w-[270px] h-[180px]' />
 						</figure>
 						<div className="card-body">
 							<h2 className="card-title">New movie is released!</h2>

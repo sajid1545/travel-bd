@@ -8,7 +8,7 @@ const DestinationContext = ({ children }) => {
 	const [selectedCart, setSelectedCart] = useState([]);
 
 	useEffect(() => {
-		fetch('destinations.json')
+		fetch('https://travel-server-alpha.vercel.app/destinations')
 			.then((res) => res.json())
 			.then((data) => setDestination(data));
 	}, []);
@@ -16,7 +16,6 @@ const DestinationContext = ({ children }) => {
 	const handleCard = (selectedCard) => {
 		setSelectedCart(selectedCard);
 	};
-
 
 	console.log(selectedCart);
 

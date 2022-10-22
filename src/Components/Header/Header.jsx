@@ -75,7 +75,15 @@ const Header = () => {
 								</Link>
 							)}
 						</li>
-						<li>{user?.photoURL ? <img src={user.photoURL} alt="" /> : <FaUserAlt />}</li>
+						<li>
+							<Link to={'/user-profile'}>
+								{user?.photoURL ? (
+									<img src={user.photoURL} alt="" />
+								) : (
+									<FaUserAlt className=" ring-offset-4 ring rounded-full text-4xl " />
+								)}
+							</Link>
+						</li>
 					</ul>
 					<div className="lg:hidden">
 						<button

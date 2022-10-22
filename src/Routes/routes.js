@@ -6,6 +6,7 @@ import Login from './../Components/Login/Login';
 import Register from './../Components/Register/Register';
 import RoomDetails from './../Components/RoomDetails/RoomDetails';
 import PrivateRoute from './PrivateRoute';
+import UserProfile from '../Components/UserProfile/UserProfile';
 
 export const router = createBrowserRouter([
 	{
@@ -33,6 +34,14 @@ export const router = createBrowserRouter([
 				element: (
 					<PrivateRoute>
 						<RoomDetails />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/user-profile',
+				element: (
+					<PrivateRoute>
+						<UserProfile />
 					</PrivateRoute>
 				),
 			},

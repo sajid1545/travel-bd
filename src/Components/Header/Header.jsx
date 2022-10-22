@@ -55,10 +55,10 @@ const Header = () => {
 						</li>
 
 						<li>
-							{user?.email ? (
+							{user?.emailVerified ? (
 								<>
 									<span className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-										{user && user?.displayName}
+										{ user?.displayName}
 									</span>
 
 									<button onClick={logOut} className="btn btn-primary ml-3">
@@ -77,7 +77,7 @@ const Header = () => {
 						</li>
 						<li>
 							<Link to={'/user-profile'}>
-								{user?.email ? (
+								{user?.emailVerified ? (
 									<img
 										src={user?.photoURL}
 										alt=""

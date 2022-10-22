@@ -2,9 +2,12 @@ import React, { createContext, useEffect, useState } from 'react';
 import app from './../Firebase/firebase.config';
 import {
 	createUserWithEmailAndPassword,
+	FacebookAuthProvider,
 	getAuth,
+	GoogleAuthProvider,
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
+	signInWithPopup,
 	signOut,
 	updateProfile,
 } from 'firebase/auth';
@@ -16,6 +19,8 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
 	const [user, setUser] = useState({});
 	const [loading, setLoading] = useState(true);
+	const googleProvider = new GoogleAuthProvider();
+	const faceBookProvider = new FacebookAuthProvider();
 
 	const createUser = (email, password) => {
 		setLoading(true);
@@ -34,6 +39,14 @@ const UserContext = ({ children }) => {
 		return updateProfile(auth.currentUser, profile);
 	};
 
+	const googleSignIn = () => {
+		return signInWithPopup(auth, googleProvider);
+	};
+
+	const faceBookSignIn = () => {
+		return signInWithPopup(auth, faceBookProvider);
+	};
+
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
@@ -48,7 +61,16 @@ const UserContext = ({ children }) => {
 		return signOut(auth);
 	};
 
-	const authInfo = { createUser, signIn, user, updateUserProfile, logOut, loading };
+	const authInfo = {
+		createUser,
+		signIn,
+		user,
+		updateUserProfile,
+		logOut,
+		loading,
+		googleSignIn,
+		faceBookSignIn,
+	};
 
 	return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };

@@ -10,7 +10,7 @@ const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
 		<div>
-			<div className="px-4 py-5   md:px-24 lg:px-22 bg-white rounded-xl shadow-2xl shadow-slate-500">
+			<div className="px-4 py-5   md:px-24 lg:px-22 bg-white rounded-md shadow-lg shadow-slate-500 border-b-4 border-black">
 				<div className="relative flex items-center justify-between">
 					<Link to={'/'}>
 						<img src={logo} alt="" className="w-[120px] h-[50px] text-deep-purple-accent-400" />
@@ -77,8 +77,12 @@ const Header = () => {
 						</li>
 						<li>
 							<Link to={'/user-profile'}>
-								{user?.photoURL ? (
-									<img src={user.photoURL} alt="" />
+								{user?.email ? (
+									<img
+										src={user?.photoURL}
+										alt=""
+										className=" rounded-full w-[40px]"
+									/>
 								) : (
 									<FaUserAlt className=" ring-offset-4 ring rounded-full text-4xl " />
 								)}

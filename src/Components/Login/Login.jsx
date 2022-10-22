@@ -1,14 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import { AuthContext } from './../../Context/UserContext';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
-	const { signIn } = useContext(AuthContext);
+	const { signIn, googleSignIn, user, faceBookSignIn } = useContext(AuthContext);
 	const location = useLocation();
 	let navigate = useNavigate();
 	let from = location.state?.from?.pathname || '/';
+
+	useEffect(() => {
+		if (user && user?.email) {
+			navigate(from, { replace: true });
+		}
+	}, [user, navigate]);
 
 	const [error, setError] = useState('');
 
@@ -33,6 +39,29 @@ const Login = () => {
 			});
 	};
 
+	const handleGoogleSignIn = () => {
+		googleSignIn()
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+				toast.success('Success');
+			})
+			.catch((e) => {
+				toast.error(e.message);
+			});
+	};
+
+	const handleFacebookSignIn = () => {
+		faceBookSignIn()
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+				toast.success('Success');
+			})
+			.catch((e) => {
+				toast.error(e.message);
+			});
+	};
 	return (
 		<div className="mt-3">
 			<div className="w-full max-w-md mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
@@ -73,12 +102,12 @@ const Login = () => {
 					<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
 				</div>
 				<div className="flex justify-center space-x-4">
-					<button aria-label="Log in with Google" className="p-3 rounded-sm">
+					<button onClick={handleGoogleSignIn} className="p-3 rounded-sm ">
 						<FaGoogle className="w-5 h-5 fill-current" />
 					</button>
 
 					<button aria-label="Log in with GitHub" className="p-3 rounded-sm">
-						<FaFacebook className="w-5 h-5 fill-current" />
+						<FaFacebook onClick={handleFacebookSignIn} className="w-5 h-5 fill-current" />
 					</button>
 				</div>
 				<p className="text-xs text-center sm:px-6 dark:text-gray-400">

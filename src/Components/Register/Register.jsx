@@ -8,6 +8,7 @@ const Register = () => {
 	const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
 	const [showPassword, setShowPassword] = useState(false);
+	const [showPassword2, setShowPassword2] = useState(false);
 
 	const [errors, setErrors] = useState({
 		password: '',
@@ -124,7 +125,7 @@ const Register = () => {
 							Confirm Password
 						</label>
 						<input
-							type={showPassword ? 'text' : 'password'}
+							type={showPassword2 ? 'text' : 'password'}
 							name="confirm"
 							id="confirm"
 							placeholder="Confirm password"
@@ -132,8 +133,8 @@ const Register = () => {
 						/>
 						<div
 							className="absolute text-white text-xl right-10 top-8 cursor-pointer"
-							onClick={() => setShowPassword(!showPassword)}>
-							{showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+							onClick={() => setShowPassword2(!showPassword2)}>
+							{showPassword2 ? <AiFillEye /> : <AiFillEyeInvisible />}
 						</div>
 					</div>
 					<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">

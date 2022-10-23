@@ -14,11 +14,12 @@ const PrivateRoute = ({ children }) => {
 		);
 	}
 
-	if (user?.emailVerified) {
-		return children;
+	if (!user) {
+		return <Navigate to={'/login'} state={{ from: location }} replace />;
 	}
+	return children;
+	
 
-	return <Navigate to={'/login'} state={{ from: location }} replace />;
 };
 
 export default PrivateRoute;

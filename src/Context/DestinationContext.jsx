@@ -17,7 +17,7 @@ const DestinationContext = ({ children }) => {
 		setSelectedCart(selectedCard);
 	};
 
-	console.log(selectedCart);
+	
 
 	const bookingInfo = { destinations, selectedCart, handleCard };
 

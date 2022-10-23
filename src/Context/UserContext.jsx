@@ -18,7 +18,7 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const googleProvider = new GoogleAuthProvider();
 	const faceBookProvider = new FacebookAuthProvider();
@@ -60,11 +60,12 @@ const UserContext = ({ children }) => {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-			if (currentUser == null || currentUser.emailVerified) {
+			console.log('Inside state',currentUser);
+			if (currentUser === null || currentUser.emailVerified) {
 				setUser(currentUser);
+				console.log('after verification',currentUser);
 			}
 			setLoading(false);
-			console.log(currentUser);
 		});
 
 		return () => {
@@ -72,6 +73,7 @@ const UserContext = ({ children }) => {
 		};
 	}, []);
 
+	console.log('Inside state-2',user);
 	
 
 	const verifyEmail = () => {

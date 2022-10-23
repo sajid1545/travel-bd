@@ -1,22 +1,25 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
-import { AuthContext } from './../../Context/UserContext';
 import { toast } from 'react-hot-toast';
+import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from './../../Context/UserContext';
+import { FaEye } from 'react-icons/fa';
+import { FaEyeSlash } from 'react-icons/fa';
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
 	const { signIn, googleSignIn, user, faceBookSignIn, setLoading } = useContext(AuthContext);
 	const location = useLocation();
 	let from = location.state?.from?.pathname || '/';
 	let navigate = useNavigate();
+	const [showPass, setShowPass] = useState(false);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
-		if (user?.emailVerified) {
+		if (user && user.email) {
 			navigate(from, { replace: true });
 		}
-	}, [user, navigate, from]);
-
-	const [error, setError] = useState('');
+	}, [user, navigate]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -44,8 +47,6 @@ const Login = () => {
 				setLoading(false);
 			});
 	};
-
-	console.log(user);
 
 	const handleGoogleSignIn = () => {
 		googleSignIn()
@@ -87,17 +88,20 @@ const Login = () => {
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
 					</div>
-					<div className="space-y-1 text-sm">
+					<div className="space-y-1 text-sm relative">
 						<label htmlFor="password" className="block dark:text-gray-400">
 							Password
 						</label>
 						<input
-							type="password"
+							type={showPass ? 'text' : 'password'}
 							name="password"
 							id="password"
 							placeholder="Password"
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
+					<button className="absolute right-5 top-9 text-xl text-whtie" onClick={() => setShowPass(!showPass)}>
+						{showPass ? <AiFillEye  /> : <AiFillEyeInvisible />}
+					</button>
 					</div>
 					<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">
 						Sign in

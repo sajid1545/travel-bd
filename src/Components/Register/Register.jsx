@@ -41,14 +41,19 @@ const Register = () => {
 				handleUpdateProfile(name);
 				form.reset();
 				// toast.success('Successfully registered');
-				verifyEmail().then(() => {
-					toast.success('Verify your email address');
-				});
+				handleEmailVerification();
+				toast.success('Please verify your email address.');
 			})
 			.catch((e) => {
 				setErrors({ ...errors, general: e.message });
 				toast.error(e.message);
 			});
+	};
+
+	const handleEmailVerification = () => {
+		verifyEmail()
+			.then(() => {})
+			.catch((error) => console.error(error));
 	};
 
 	const handleUpdateProfile = (name) => {

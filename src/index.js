@@ -7,6 +7,8 @@ import 'flowbite';
 import DestinationContext from './Context/DestinationContext';
 import { Toaster } from 'react-hot-toast';
 import UserContext from './Context/UserContext';
+// import "~slick-carousel/slick/slick.css"; 
+// import "~slick-carousel/slick/slick-theme.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

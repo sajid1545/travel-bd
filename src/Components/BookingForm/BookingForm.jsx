@@ -6,7 +6,7 @@ const BookingForm = () => {
 	const { selectedCart } = useContext(BookingContext);
 
 	return (
-		<div className="h-[470px] w-[470px] rounded-[5px]  p-[24px] bg-white text-black space-y-5">
+		<div className="h-[80%] w-[90%] mx-auto lg:h-[470px] lg:w-[470px] rounded-[5px]  p-[24px] bg-white text-black space-y-5">
 			{selectedCart.length === 0 ? <Navigate to={'/'}></Navigate> : ''}
 			<div className="space-y-2">
 				<label htmlFor="firstname" className="text-md">

@@ -58,7 +58,7 @@ const Header = () => {
 							{user?.emailVerified ? (
 								<>
 									<span className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-										{ user?.displayName}
+										{user?.displayName}
 									</span>
 
 									<button onClick={logOut} className="btn btn-primary ml-3">
@@ -78,11 +78,7 @@ const Header = () => {
 						<li>
 							<Link to={'/user-profile'}>
 								{user?.emailVerified ? (
-									<img
-										src={user?.photoURL}
-										alt=""
-										className=" rounded-full w-[40px]"
-									/>
+									<img src={user?.photoURL} alt="" className=" rounded-full w-[40px]" />
 								) : (
 									<FaUserAlt className=" ring-offset-4 ring rounded-full text-4xl " />
 								)}
@@ -177,7 +173,36 @@ const Header = () => {
 												</a>
 											</li>
 
-											<li>{user?.photoURL ? <img src={user.photoURL} alt="" /> : <FaUserAlt />}</li>
+											<li>
+												{user?.emailVerified ? (
+													<>
+														<span className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+															{user?.displayName}
+														</span>
+
+														<button onClick={logOut} className="btn btn-primary ml-3">
+															LogOut
+														</button>
+													</>
+												) : (
+													<Link
+														to={'/login'}
+														className="inline-flex items-center justify-center h-12 px-6 font-medium   transition duration-200 rounded focus:shadow-outline focus:outline-none bg-red-500 text-white"
+														aria-label="Sign up"
+														title="Sign up">
+														Login
+													</Link>
+												)}
+											</li>
+											<li>
+												<Link to={'/user-profile'}>
+													{user?.emailVerified ? (
+														<img src={user?.photoURL} alt="" className=" rounded-full w-[40px]" />
+													) : (
+														<FaUserAlt className=" ring-offset-4 ring rounded-full text-4xl " />
+													)}
+												</Link>
+											</li>
 										</ul>
 									</nav>
 								</div>

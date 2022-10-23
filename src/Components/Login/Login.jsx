@@ -30,9 +30,9 @@ const Login = () => {
 				const user = result.user;
 				console.log(user);
 				form.reset();
-				// toast.success('Success');
 				if (user.emailVerified) {
 					navigate(from, { replace: true });
+					toast.success('Success');
 				} else {
 					toast.error('Your email is not verified. Please verify your email address.');
 				}

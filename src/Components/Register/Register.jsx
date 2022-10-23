@@ -2,9 +2,12 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './../../Context/UserContext';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Register = () => {
 	const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+
+	const [showPassword, setShowPassword] = useState(false);
 
 	const [errors, setErrors] = useState({
 		password: '',
@@ -66,10 +69,6 @@ const Register = () => {
 			.catch((e) => toast.error(e.message));
 	};
 
-	// const handleVerifyEmail = () => {
-	// 	verifyEmail().then(() => {});
-	// };
-
 	return (
 		<div className="mt-3">
 			<div className="w-full max-w-md mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100  ">
@@ -87,7 +86,7 @@ const Register = () => {
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
 					</div>
-					<div className="space-y-1 text-sm">
+					<div className="space-y-1 text-sm ">
 						<label htmlFor="useremail" className="block dark:text-gray-400">
 							Email
 						</label>
@@ -100,12 +99,12 @@ const Register = () => {
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
 					</div>
-					<div className="space-y-1 text-sm">
+					<div className="space-y-1 text-sm relative">
 						<label htmlFor="password" className="block dark:text-gray-400">
 							Password
 						</label>
 						<input
-							type="password"
+							type={showPassword ? 'text' : 'password'}
 							name="password"
 							id="password"
 							onChange={handlePasswordChange}
@@ -113,19 +112,29 @@ const Register = () => {
 							required
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
+						<div
+							className="absolute text-white text-xl right-10 top-8 cursor-pointer"
+							onClick={() => setShowPassword(!showPassword)}>
+							{showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+						</div>
 					</div>
 					{errors.password && <p className="text-red-600">{errors.password}</p>}
-					<div className="space-y-1 text-sm">
+					<div className="space-y-1 text-sm relative">
 						<label htmlFor="password" className="block dark:text-gray-400">
 							Confirm Password
 						</label>
 						<input
-							type="password"
+							type={showPassword ? 'text' : 'password'}
 							name="confirm"
 							id="confirm"
 							placeholder="Confirm password"
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
+						<div
+							className="absolute text-white text-xl right-10 top-8 cursor-pointer"
+							onClick={() => setShowPassword(!showPassword)}>
+							{showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+						</div>
 					</div>
 					<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">
 						Register

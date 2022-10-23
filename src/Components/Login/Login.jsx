@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './../../Context/UserContext';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Login = () => {
 	const { signIn, googleSignIn, user, faceBookSignIn, setLoading } = useContext(AuthContext);
@@ -99,9 +99,11 @@ const Login = () => {
 							placeholder="Password"
 							className="w-full px-4 py-3 rounded-md border-b-2  border-[#F2F2F2] dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
-					<button className="absolute right-5 top-9 text-xl text-whtie" onClick={() => setShowPass(!showPass)}>
-						{showPass ? <AiFillEye  /> : <AiFillEyeInvisible />}
-					</button>
+						<button
+							className="absolute right-5 top-9 text-xl text-whtie"
+							onClick={() => setShowPass(!showPass)}>
+							{showPass ? <AiFillEye /> : <AiFillEyeInvisible />}
+						</button>
 					</div>
 					<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">
 						Sign in

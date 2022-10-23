@@ -14,7 +14,7 @@ const Login = () => {
 		if (user?.emailVerified) {
 			navigate(from, { replace: true });
 		}
-	}, [user, navigate]);
+	}, [user, navigate, from]);
 
 	const [error, setError] = useState('');
 

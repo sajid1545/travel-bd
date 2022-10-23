@@ -55,7 +55,7 @@ const Header = () => {
 						</li>
 
 						<li>
-							{user?.emailVerified ? (
+							{user?.uid ? (
 								<>
 									<span className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
 										{user?.displayName}
@@ -77,7 +77,7 @@ const Header = () => {
 						</li>
 						<li>
 							<Link to={'/user-profile'}>
-								{user?.emailVerified ? (
+								{user?.photoURL ? (
 									<img src={user?.photoURL} alt="" className=" rounded-full w-[40px]" />
 								) : (
 									<FaUserAlt className=" ring-offset-4 ring rounded-full text-4xl " />

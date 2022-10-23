@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import { AuthContext } from './../../Context/UserContext';
 import { toast } from 'react-hot-toast';
@@ -20,7 +20,6 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setError('');
 		let form = e.target;
 		let email = form.email.value;
 		let password = form.password.value;
@@ -29,23 +28,24 @@ const Login = () => {
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
-				form.reset();
+				setError('');
 				if (user.emailVerified) {
 					navigate(from, { replace: true });
-					toast.success('Success');
 				} else {
 					toast.error('Your email is not verified. Please verify your email address.');
 				}
-				// navigate(from, { replace: true });
+				form.reset();
 			})
-			.catch((e) => {
-				toast.error(e.message);
-				setError(e.message);
+			.catch((err) => {
+				console.log(err);
+				setError(err.message);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
 	};
+
+	console.log(user);
 
 	const handleGoogleSignIn = () => {
 		googleSignIn()
@@ -53,7 +53,6 @@ const Login = () => {
 				const user = result.user;
 				console.log(user);
 				toast.success('Success');
-				
 			})
 			.catch((e) => {
 				toast.error(e.message);

@@ -41,30 +41,38 @@ const UserContext = ({ children }) => {
 	};
 
 	const googleSignIn = () => {
+		setLoading(true);
 
 		return signInWithPopup(auth, googleProvider);
 	};
 
 	const faceBookSignIn = () => {
+		setLoading(true);
 
 		return signInWithPopup(auth, faceBookProvider);
 	};
 
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-			// if (currentUser === null || currentUser.emailVerified) {
-			// }
-			console.log(currentUser);
-			setUser(currentUser);
-			setLoading(false);
-		});
-
-		return () => unsubscribe();
-	}, []);
-
 	const logOut = () => {
+		setLoading(true);
+
 		return signOut(auth);
 	};
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+			if (currentUser == null || currentUser.emailVerified) {
+				setUser(currentUser);
+			}
+			setLoading(false);
+			console.log(currentUser);
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	}, []);
+
+	
 
 	const verifyEmail = () => {
 		return sendEmailVerification(auth.currentUser);
